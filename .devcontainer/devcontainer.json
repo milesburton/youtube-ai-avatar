@@ -1,17 +1,27 @@
 {
-    "name": "YouTube AI Avatar",
-    "dockerComposeFile": ["../docker-compose.yml"],
-    "service": "devcontainer",
-    "workspaceFolder": "/workspace",
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "dbaeumer.vscode-eslint",
-                "esbenp.prettier-vscode",
-                "bradlc.vscode-tailwindcss",
-                "ms-vscode.vscode-typescript-next"
-            ]
-        }
-    },
-    "forwardPorts": [5173, 3000, 8080]
+  "name": "YouTube AI Avatar",
+  "dockerComposeFile": [
+    "../docker-compose.yml"
+  ],
+  "service": "devcontainer",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-typescript-next"
+      ]
+    }
+  },
+  "forwardPorts": [
+    5173,
+    3000,
+    8080
+  ],
+  "mounts": [
+    "source=${localEnv:HOME}/.ssh,target=/home/node/.ssh,type=bind,readonly",
+    "source=${localEnv:HOME}/.config/claude,target=/home/node/.config/claude,type=bind"
+  ]
 }
